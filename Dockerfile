@@ -1,9 +1,11 @@
 FROM wangyuntao/java8
 MAINTAINER wangyuntao <wyt.daily@gmail.com>
 
-LABEL usage="docker run wangyuntao/dynamodb-local"
+ENV DYNAMODB_LOCAL_DIR /root/dynamodb-local
 
-WORKDIR /root
+LABEL usage="docker run -d -p 8000:8000 --restart=always --name dynamodb-local -v `pwd`/data:$DYNAMODB_LOCAL_DIR/data wangyuntao/dynamodb-local"
+
+WORKDIR $DYNAMODB_LOCAL_DIR
 
 RUN \
   apt-get install -y wget && \
