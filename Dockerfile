@@ -14,4 +14,4 @@ RUN \
 EXPOSE 8000
 VOLUME ["$DYNAMODB_LOCAL_DIR/data"]
 
-CMD ["/usr/bin/java", "-Djava.library.path", "./DynamoDBLocal_lib", "-jar", "DynamoDBLocal.jar", "-sharedDb", "-dbth", "./data"]
+CMD ["java", "-Djava.library.path", "./DynamoDBLocal_lib", "-jar", "DynamoDBLocal.jar", "-sharedDb", "-dbth", "./data"]
